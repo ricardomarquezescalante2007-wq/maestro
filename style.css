@@ -7,12 +7,16 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0;
-    padding: 0;
+    padding: 20px; /* Añade un espacio en los bordes para que no pegue al ras */
     width: 100%;
     min-height: 100vh;
+    box-sizing: border-box;
+    text-align: center; /* Esto centrará todos los textos sueltos en la pantalla */
+    color: #ffffff; /* Opcional: hace que los textos sueltos se vean blancos sobre el fondo oscuro */
 }
 
-h1, h2, h3, h4, h5, h6, footer {
+/* Forzar que cualquier título o etiqueta de bloque se centre y no herede márgenes raros */
+h1, h2, h3, h4, h5, h6, p, footer, div {
     text-align: center;
 }
 
@@ -35,6 +39,7 @@ h1, h2, h3, h4, h5, h6, footer {
     width: 450px;
     height: 550px;
     perspective: 1000px;
+    display: inline-block; /* Evita que la tarjeta pierda su comportamiento al centrar el body */
 }
 
 .flip-card-inner {
@@ -113,6 +118,8 @@ h1, h2, h3, h4, h5, h6, footer {
     width: 100%;
     max-width: 500px;
     box-sizing: border-box;
+    display: inline-block; /* Mantiene la encuesta centrada en el flujo */
+    text-align: left; /* Mantiene el texto de la encuesta ordenado por dentro */
 }
 
 .encuesta h2 {
@@ -128,6 +135,7 @@ h1, h2, h3, h4, h5, h6, footer {
     display: inline-block;
     margin-bottom: 12px;
     cursor: pointer;
+    color: #333; /* Garantiza que las opciones de la encuesta se lean bien dentro de su caja blanca */
 }
 
 /* Adaptabilidad para pantallas pequeñas */
