@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ESTILOS GENERALES (Añádelos al principio si no los tienes)
+   ESTILOS GENERALES
    ========================================================================== */
 body, html {
     height: 100%;
@@ -61,11 +61,11 @@ body, html {
 }
 
 /* ==========================================================================
-   CARA FRONTAL: ESTILOS PARA LA IMAGEN EN CÍRCULO
+   CARA FRONTAL: Fondo azul y contenedor circular para la foto
    ========================================================================== */
 .flip-card-front {
-    background-color: #ffffff;
-    color: black;
+    background: linear-gradient(135deg, #0056b3, #002d62); /* Conserva y mejora el fondo anterior */
+    color: #ffffff; /* Texto en blanco para alto contraste */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -73,15 +73,14 @@ body, html {
     padding: 20px;
 }
 
-/* Contenedor circular para la imagen */
 .photo-circle {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    overflow: hidden; /* Corta la imagen en círculo */
-    border: 5px solid #0056b3; /* Borde azul */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
-    margin-bottom: 20px; /* Separación con el título */
+    overflow: hidden; /* Corta la imagen sobrante para hacerla círculo */
+    border: 5px solid #ffffff; /* Borde blanco para destacar sobre el fondo azul */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+    margin-bottom: 20px; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,42 +89,41 @@ body, html {
 .photo-circle img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ajusta la imagen sin distorsionar */
+    object-fit: cover; /* Evita que la foto se distorsione */
 }
 
 .master-title {
     font-size: 24px;
     margin: 0;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* ==========================================================================
-   CARA TRASERA: ESTILOS REEMPLAZADOS (Los que ya tenías)
+   CARA TRASERA: Alineación vertical y fondo claro
    ========================================================================== */
 .flip-card-back {
-    background-color: #ffffff;
+    background-color: #ffffff; /* Fondo blanco */
     padding: 40px;
     transform: rotateY(180deg);
-    
-    /* Cambios clave para la alineación vertical */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between; 
 }
 
-/* Modificado para que el texto ocupe su espacio sin estorbar al botón */
 .master-text {
-    font-size: 18px; /* Ajustado ligeramente para caber mejor */
+    font-size: 18px; 
     color: #555;
     line-height: 1.6;
     margin: 0;
-    flex-grow: 1; /* Alarga el espacio del texto para empujar lo demás */
+    flex-grow: 1; 
     display: flex;
-    align-items: center; /* Centra el texto verticalmente en su espacio */
+    align-items: center; 
 }
 
 /* ==========================================================================
-   ESTILOS DEL BOTÓN (Los que ya tenías)
+   ESTILOS DEL BOTÓN
    ========================================================================== */
 .container-btn {
     width: 100%;
@@ -137,19 +135,18 @@ body, html {
 .btn-encuesta {
     display: inline-block;
     padding: 14px 32px;
-    background: linear-gradient(135deg, #0056b3, #0088cc); /* Degradado azul */
-    color: #ffffff !important; /* Fuerza el texto blanco */
-    text-decoration: none; /* Quita el subrayado */
+    background: linear-gradient(135deg, #0056b3, #0088cc); 
+    color: #ffffff !important; 
+    text-decoration: none; 
     font-weight: bold;
     font-size: 18px;
-    text-transform: uppercase; /* Texto en mayúsculas */
-    border-radius: 50px; /* Bordes completamente redondeados */
-    box-shadow: 0 5px 15px rgba(0, 86, 179, 0.4); /* Sombra elegante */
+    text-transform: uppercase; 
+    border-radius: 50px; 
+    box-shadow: 0 5px 15px rgba(0, 86, 179, 0.4); 
     transition: all 0.3s ease;
     letter-spacing: 0.5px;
 }
 
-/* Efectos del botón */
 .btn-encuesta:hover {
     background: linear-gradient(135deg, #004085, #006699);
     box-shadow: 0 7px 22px rgba(0, 86, 179, 0.6);
@@ -162,7 +159,7 @@ body, html {
 }
 
 /* ==========================================================================
-   PIE DE PÁGINA Y OTROS
+   PIE DE PÁGINA
    ========================================================================== */
 .footer {
     text-align: center;
