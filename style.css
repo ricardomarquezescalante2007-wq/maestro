@@ -1,64 +1,9 @@
 /* ==========================================================================
-   Configuración de fondo y textos para Computadora y Teléfono
-   ========================================================================== */
-body {
-    background: linear-gradient(135deg, #070b19, #000000);
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin: 0;
-    padding: 20px; /* Añade un espacio en los bordes para que no pegue al ras */
-    width: 100%;
-    min-height: 100vh;
-    box-sizing: border-box;
-    text-align: center; /* Esto centrará todos los textos sueltos en la pantalla */
-    color: #ffffff; /* Opcional: hace que los textos sueltos se vean blancos sobre el fondo oscuro */
-}
-
-/* Forzar que cualquier título o etiqueta de bloque se centre y no herede márgenes raros */
-h1, h2, h3, h4, h5, h6, p, footer, div {
-    text-align: center;
-}
-
-/* ==========================================================================
-   Tus estilos originales (Con corrección en la tarjeta trasera)
+   REEMPLAZA ESTOS BLOQUES EN TU CSS
    ========================================================================== */
 
-/* Contenedor principal alineado verticalmente y centrado */
-.contenedor-principal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    margin-top: 30px;
-}
-
-/* Tarjeta considerablemente más grande como elemento principal */
-.flip-card {
-    background-color: transparent;
-    width: 450px;
-    height: 550px;
-    perspective: 1000px;
-    display: inline-block; /* Evita que la tarjeta pierda su comportamiento al centrar el body */
-}
-
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s, background-color 0.3s, opacity 0.3s;
-    transform-style: preserve-3d;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    border-radius: 15px;
-    background-color: #f2f2f2;
-}
-
-.flip-card.flipped .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
+/* Se cambia a columna y se usa space-between para mandar el botón al fondo */
+.flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -67,141 +12,63 @@ h1, h2, h3, h4, h5, h6, p, footer, div {
     border-radius: 15px;
     padding: 40px;
     box-sizing: border-box;
-}
-
-.flip-card-front {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* CORREGIDO: Cambiado a flex-direction: column y space-between para empujar el botón al fondo */
-.flip-card-back {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
     transform: rotateY(180deg);
+    
+    /* Cambios clave para la alineación vertical */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; 
 }
 
-/* Ajuste de la foto para la tarjeta grande */
-.photo {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 30px;
-    transition: transform 0.3s;
-}
-
-.photo-hover {
-    transform: scale(1.05);
-}
-
-.master-title {
-    font-size: 32px;
-    color: #333;
-    margin: 0;
-}
-
-/* CORREGIDO: Quitado el margen para controlar la posición con el flexbox */
+/* Modificado para que el texto ocupe su espacio sin estorbar al botón */
 .master-text {
     font-size: 20px;
     color: #555;
     line-height: 1.6;
     margin: 0;
+    flex-grow: 1; /* Alarga el espacio del texto para empujar lo demás */
+    display: flex;
+    align-items: center; /* Centra el texto verticalmente en su espacio */
 }
 
 /* ==========================================================================
-   Nuevos estilos para el Botón Llamativo
+   AGREGA ESTO AL FINAL DE TU CSS (Estilos del Botón)
    ========================================================================== */
 
+/* Contenedor del botón para forzar el salto de línea y separarlo del texto */
 .container-btn {
     width: 100%;
     text-align: center;
-    margin-top: auto; /* Truco de flexbox para mandar el botón abajo pase lo que pase */
-    padding-top: 20px;
+    margin-top: auto; 
+    padding-top: 15px;
 }
 
+/* Diseño del botón: Azul, llamativo, redondeado y con sombra */
 .btn-encuesta {
     display: inline-block;
-    padding: 14px 30px;
-    background: linear-gradient(135deg, #007bff, #00c6ff); /* Degradado azul moderno */
-    color: #ffffff !important;
-    text-decoration: none;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #0056b3, #0088cc); /* Degradado azul */
+    color: #ffffff !important; /* Fuerza el texto blanco */
+    text-decoration: none; /* Quita el subrayado azul feo */
     font-weight: bold;
     font-size: 18px;
-    border-radius: 25px;
-    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4); /* Sombra con color */
+    text-transform: uppercase; /* Texto en mayúsculas para más impacto */
+    border-radius: 50px; /* Bordes completamente redondeados */
+    box-shadow: 0 5px 15px rgba(0, 86, 179, 0.4); /* Sombra elegante */
     transition: all 0.3s ease;
     letter-spacing: 0.5px;
 }
 
+/* Efecto al pasar el mouse */
 .btn-encuesta:hover {
-    background: linear-gradient(135deg, #0056b3, #0088cc);
-    box-shadow: 0 7px 22px rgba(0, 123, 255, 0.6);
-    transform: translateY(-2px); /* Efecto de flotado */
+    background: linear-gradient(135deg, #004085, #006699);
+    box-shadow: 0 7px 22px rgba(0, 86, 179, 0.6);
+    transform: translateY(-2px); /* Eleva el botón ligeramente */
 }
 
+/* Efecto al hacer click */
 .btn-encuesta:active {
     transform: translateY(1px);
-    box-shadow: 0 3px 10px rgba(0, 123, 255, 0.4);
-}
-
-/* ==========================================================================
-   Encuesta estilizada (Tus estilos originales)
-   ========================================================================== */
-.encuesta {
-    background: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    width: 100%;
-    max-width: 500px;
-    box-sizing: border-box;
-    display: inline-block; 
-    text-align: left; 
-}
-
-.encuesta h2 {
-    font-size: 22px;
-    margin-top: 0;
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
-}
-
-.encuesta label {
-    font-size: 18px;
-    display: inline-block;
-    margin-bottom: 12px;
-    cursor: pointer;
-    color: #333; 
-}
-
-/* Adaptabilidad para pantallas pequeñas */
-@media (max-width: 500px) {
-    .flip-card {
-        width: 100%;
-        height: 480px;
-    }
-    .photo {
-        width: 160px;
-        height: 160px;
-    }
-    .master-title {
-        font-size: 26px;
-    }
-    .master-text {
-        font-size: 16px;
-    }
-    .encuesta {
-        width: 100%;
-    }
-    /* Reducción del botón para que no rompa en celulares */
-    .btn-encuesta {
-        font-size: 16px;
-        padding: 10px 22px;
-    }
+    box-shadow: 0 3px 10px rgba(0, 86, 179, 0.4);
 }
