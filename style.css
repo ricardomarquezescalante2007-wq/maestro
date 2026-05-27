@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6, p, footer, div {
 }
 
 /* ==========================================================================
-   Tus estilos originales (Intactos)
+   Tus estilos originales (Con corrección en la tarjeta trasera)
    ========================================================================== */
 
 /* Contenedor principal alineado verticalmente y centrado */
@@ -76,10 +76,12 @@ h1, h2, h3, h4, h5, h6, p, footer, div {
     justify-content: center;
 }
 
+/* CORREGIDO: Cambiado a flex-direction: column y space-between para empujar el botón al fondo */
 .flip-card-back {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     transform: rotateY(180deg);
 }
 
@@ -103,13 +105,53 @@ h1, h2, h3, h4, h5, h6, p, footer, div {
     margin: 0;
 }
 
+/* CORREGIDO: Quitado el margen para controlar la posición con el flexbox */
 .master-text {
     font-size: 20px;
     color: #555;
     line-height: 1.6;
+    margin: 0;
 }
 
-/* Encuesta estilizada y expandida abajo de la tarjeta */
+/* ==========================================================================
+   Nuevos estilos para el Botón Llamativo
+   ========================================================================== */
+
+.container-btn {
+    width: 100%;
+    text-align: center;
+    margin-top: auto; /* Truco de flexbox para mandar el botón abajo pase lo que pase */
+    padding-top: 20px;
+}
+
+.btn-encuesta {
+    display: inline-block;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #007bff, #00c6ff); /* Degradado azul moderno */
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4); /* Sombra con color */
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.btn-encuesta:hover {
+    background: linear-gradient(135deg, #0056b3, #0088cc);
+    box-shadow: 0 7px 22px rgba(0, 123, 255, 0.6);
+    transform: translateY(-2px); /* Efecto de flotado */
+}
+
+.btn-encuesta:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(0, 123, 255, 0.4);
+}
+
+/* ==========================================================================
+   Encuesta estilizada (Tus estilos originales)
+   ========================================================================== */
 .encuesta {
     background: #fff;
     padding: 30px;
@@ -118,8 +160,8 @@ h1, h2, h3, h4, h5, h6, p, footer, div {
     width: 100%;
     max-width: 500px;
     box-sizing: border-box;
-    display: inline-block; /* Mantiene la encuesta centrada en el flujo */
-    text-align: left; /* Mantiene el texto de la encuesta ordenado por dentro */
+    display: inline-block; 
+    text-align: left; 
 }
 
 .encuesta h2 {
@@ -135,7 +177,7 @@ h1, h2, h3, h4, h5, h6, p, footer, div {
     display: inline-block;
     margin-bottom: 12px;
     cursor: pointer;
-    color: #333; /* Garantiza que las opciones de la encuesta se lean bien dentro de su caja blanca */
+    color: #333; 
 }
 
 /* Adaptabilidad para pantallas pequeñas */
@@ -156,5 +198,10 @@ h1, h2, h3, h4, h5, h6, p, footer, div {
     }
     .encuesta {
         width: 100%;
+    }
+    /* Reducción del botón para que no rompa en celulares */
+    .btn-encuesta {
+        font-size: 16px;
+        padding: 10px 22px;
     }
 }
