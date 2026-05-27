@@ -1,17 +1,109 @@
 /* ==========================================================================
-   REEMPLAZA ESTOS BLOQUES EN TU CSS
+   ESTILOS GENERALES (Añádelos al principio si no los tienes)
    ========================================================================== */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+}
 
-/* Se cambia a columna y se usa space-between para mandar el botón al fondo */
-.flip-card-back {
+.main-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   ESTILOS DE LA TARJETA GIRATORIA (FLIP CARD)
+   ========================================================================== */
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+    border-radius: 15px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 15px;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 15px;
-    padding: 40px;
     box-sizing: border-box;
+}
+
+/* ==========================================================================
+   CARA FRONTAL: ESTILOS PARA LA IMAGEN EN CÍRCULO
+   ========================================================================== */
+.flip-card-front {
+    background-color: #ffffff;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Contenedor circular para la imagen */
+.photo-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden; /* Corta la imagen en círculo */
+    border: 5px solid #0056b3; /* Borde azul */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    margin-bottom: 20px; /* Separación con el título */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen sin distorsionar */
+}
+
+.master-title {
+    font-size: 24px;
+    margin: 0;
+}
+
+/* ==========================================================================
+   CARA TRASERA: ESTILOS REEMPLAZADOS (Los que ya tenías)
+   ========================================================================== */
+.flip-card-back {
+    background-color: #ffffff;
+    padding: 40px;
     transform: rotateY(180deg);
     
     /* Cambios clave para la alineación vertical */
@@ -23,7 +115,7 @@
 
 /* Modificado para que el texto ocupe su espacio sin estorbar al botón */
 .master-text {
-    font-size: 20px;
+    font-size: 18px; /* Ajustado ligeramente para caber mejor */
     color: #555;
     line-height: 1.6;
     margin: 0;
@@ -33,10 +125,8 @@
 }
 
 /* ==========================================================================
-   AGREGA ESTO AL FINAL DE TU CSS (Estilos del Botón)
+   ESTILOS DEL BOTÓN (Los que ya tenías)
    ========================================================================== */
-
-/* Contenedor del botón para forzar el salto de línea y separarlo del texto */
 .container-btn {
     width: 100%;
     text-align: center;
@@ -44,31 +134,39 @@
     padding-top: 15px;
 }
 
-/* Diseño del botón: Azul, llamativo, redondeado y con sombra */
 .btn-encuesta {
     display: inline-block;
     padding: 14px 32px;
     background: linear-gradient(135deg, #0056b3, #0088cc); /* Degradado azul */
     color: #ffffff !important; /* Fuerza el texto blanco */
-    text-decoration: none; /* Quita el subrayado azul feo */
+    text-decoration: none; /* Quita el subrayado */
     font-weight: bold;
     font-size: 18px;
-    text-transform: uppercase; /* Texto en mayúsculas para más impacto */
+    text-transform: uppercase; /* Texto en mayúsculas */
     border-radius: 50px; /* Bordes completamente redondeados */
     box-shadow: 0 5px 15px rgba(0, 86, 179, 0.4); /* Sombra elegante */
     transition: all 0.3s ease;
     letter-spacing: 0.5px;
 }
 
-/* Efecto al pasar el mouse */
+/* Efectos del botón */
 .btn-encuesta:hover {
     background: linear-gradient(135deg, #004085, #006699);
     box-shadow: 0 7px 22px rgba(0, 86, 179, 0.6);
-    transform: translateY(-2px); /* Eleva el botón ligeramente */
+    transform: translateY(-2px);
 }
 
-/* Efecto al hacer click */
 .btn-encuesta:active {
     transform: translateY(1px);
     box-shadow: 0 3px 10px rgba(0, 86, 179, 0.4);
+}
+
+/* ==========================================================================
+   PIE DE PÁGINA Y OTROS
+   ========================================================================== */
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #777;
 }
